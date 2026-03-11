@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
@@ -14,7 +15,9 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="flex flex-1 items-center justify-end gap-4">
-          <SearchBar />
+          <Suspense fallback={<div className="text-white">Loading...</div>}>
+        <SearchBar />
+      </Suspense>
         </div>
       </div>
     </header>

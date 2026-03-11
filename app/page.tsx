@@ -1,5 +1,4 @@
 import MovieGrid from "@/components/MovieGrid";
-import FavoritesSection from "@/components/FavoritesSection";
 import { getPopularMovies } from "@/lib/tmdb";
 import Link from "next/link";
 

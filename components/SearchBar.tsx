@@ -6,6 +6,7 @@ import { FormEvent, useState, useEffect } from "react";
 export default function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const initialQuery = searchParams.get("query") ?? "";
   const [query, setQuery] = useState(initialQuery);
 
@@ -16,7 +17,9 @@ export default function SearchBar() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const trimmed = query.trim();
+
     if (!trimmed) return;
+
     router.push(`/search?query=${encodeURIComponent(trimmed)}`);
   };
 
@@ -32,6 +35,7 @@ export default function SearchBar() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+
       <button
         type="submit"
         className="rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white transition hover:bg-red-500"
@@ -41,4 +45,3 @@ export default function SearchBar() {
     </form>
   );
 }
-
